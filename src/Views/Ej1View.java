@@ -30,7 +30,7 @@ public class Ej1View extends JFrame {
 
 	public Ej1View() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 367, 355);
+		setBounds(100, 100, 367, 426);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -46,6 +46,10 @@ public class Ej1View extends JFrame {
 				FormSpecs.DEFAULT_COLSPEC,
 				FormSpecs.RELATED_GAP_COLSPEC,},
 			new RowSpec[] {
+				FormSpecs.RELATED_GAP_ROWSPEC,
+				FormSpecs.DEFAULT_ROWSPEC,
+				FormSpecs.RELATED_GAP_ROWSPEC,
+				FormSpecs.DEFAULT_ROWSPEC,
 				FormSpecs.RELATED_GAP_ROWSPEC,
 				FormSpecs.DEFAULT_ROWSPEC,
 				FormSpecs.RELATED_GAP_ROWSPEC,
@@ -129,10 +133,11 @@ public class Ej1View extends JFrame {
 		lblDataTitle.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
 		contentPane.add(lblDataTitle, "4, 24, 3, 1, center, default");
 		
-		lblData = new JLabel("Hello");
-		lblData.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblData = new JLabel();
 		lblData.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
-		contentPane.add(lblData, "4, 26, 3, 1, center, default");
+		lblData.setHorizontalAlignment(SwingConstants.CENTER);
+		lblData.setVerticalAlignment(SwingConstants.TOP);
+		contentPane.add(lblData, "4, 26, 3, 7, center, top");
 		
 	    btnShow.addActionListener(e -> {
 	        if (validateFields()) {
@@ -141,8 +146,10 @@ public class Ej1View extends JFrame {
 	            String phone = textPhone.getText();
 	            String dateBirth = textDateBirth.getText();
 	            
-	            String data = "Nombre: " + name + ", Apellido: " + lastname + 
-	                          ", Teléfono: " + phone + ", Fecha de nacimiento: " + dateBirth;
+	            String data = "<html>Nombre: " + name + "<br>" +
+	                    "Apellido: " + lastname + "<br>" +
+	                    "Teléfono: " + phone + "<br>" +
+	                    "Fecha de nacimiento: " + dateBirth + "</html>";
 	            
 	            lblData.setText(data);
 	            
